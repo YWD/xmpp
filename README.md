@@ -1,0 +1,1 @@
+# xmpp基于xmpp开发的简单Android客户端通讯工具，服务器使用openfire，Windows客户端使用spark。
