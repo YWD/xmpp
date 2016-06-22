@@ -1,0 +1,42 @@
+代码是一点点实现的。。。。
+
+1.LoginActivity创建访问服务器，获取连接
+2.LoginActivity的点击登陆按钮，调用conn.login(username, password)方法.登陆成功，保存长链接和账号
+	|--开启service，保存service到application
+		|--处理好友消息，addChatListener
+		|--获取好友列表（roster）
+			|--添加roster监听器，监听服务器传回的有关好友列表的操作。roster.addRosterListener(rosterListener);
+			|--保存好友列表到数据库。insertOrUpdate(person);
+		|--发送消息方法
+			|--为chat设置监听器，获取好友消息
+			|--发送消息
+	跳转activity
+	
+
+//注意释放资源	
+1.LoginActivity访问服务器，获取连接
+	|--登陆按钮。调用conn.login(username, password)方法。
+		|--登陆成功，保存长链接和账号
+			2.跳转到ContactActivity，查询本地数据库，获取好友列表，设置适配器
+				|--监听本地数据库，当数据库发生变化时更新数据
+				|--设置listview条目点击事件
+					4.开启ChatActivity，传入好友账号信息（账号，昵称）
+						|--简单初始化聊天界面，查询数据库显示聊天记录
+						|--添加数据库监听器，当有新的聊天信息保存到数据库时，更新聊天记录
+						|--发送按钮，调用服务的发送消息方法，（接收发送消息都要保存到数据库，放在service中）
+			3.开启服务
+				|--监听服务器roster变化状态及时更新数据库，发出数据库更改消息，通知其他组件更新数据
+				|--处理好友消息，获得CharManager，app.getConn().getChatManager();添加监听器，监听好友消息
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		

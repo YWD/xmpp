@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.itheima.im61"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="21" />
+
+    <!-- 联网 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- 使用测试组件 -->
+    <instrumentation
+        android:name="android.test.InstrumentationTestRunner"
+        android:targetPackage="com.itheima.im61" >
+    </instrumentation>
+
+    <application
+        android:name="com.itheima.im61.ImApp"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+
+        <!-- 使用 -->
+        <uses-library
+            android:name="android.test.runner"
+            android:required="true" />
+
+        <activity
+            android:name="com.itheima.im61.activity.SplashActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.itheima.im61.activity.LoginActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.itheima.im61.activity.ContactActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.itheima.im61.activity.ChatActivity"
+            android:label="@string/app_name" >
+        </activity>
+
+        <service android:name="com.itheima.im61.service.CoreService" >
+        </service>
+    </application>
+
+</manifest>
